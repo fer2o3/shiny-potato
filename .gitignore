@@ -1,10 +1,13 @@
 inputs/
-
 test_inputs/
 
-# Byte-compiled / optimized / DLL files -- Python shit
+#  NOTE: Python shit
 __pycache__/
 *.py[cod]
 *$py.class
 
-
+#  NOTE: Rust shit
+target/
+debug/
+Cargo.lock
+**/*.rs.bk
