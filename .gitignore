@@ -13,4 +13,4 @@ Cargo.lock
 **/*.rs.bk
 
 # NOTE: Java shit
-bin/
+*.class
