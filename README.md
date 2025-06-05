@@ -1,6 +1,6 @@
 # shiny-potato
 
-Solutions to (hopefully one day) ever single AoC problem. Each year in a different language.
+Solutions to (hopefully one day) every single AoC problem. Each year in a different language.
 
 ## Languages
 
