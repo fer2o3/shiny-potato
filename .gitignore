@@ -11,3 +11,6 @@ target/
 debug/
 Cargo.lock
 **/*.rs.bk
+
+# NOTE: Java shit
+bin/
