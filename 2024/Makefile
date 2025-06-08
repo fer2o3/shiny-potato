@@ -6,7 +6,7 @@ inputs/%.in:
 	../fetch.sh 2024 $*
 
 $(DAYS): %: inputs/%.in
-	javac -d bin -cp src src/*.java 2>/dev/null || true
+	javac -d bin -cp src src/*.java
 	java -cp bin Main $*
 
 all: $(patsubst %,inputs/%.in,$(DAYS))
