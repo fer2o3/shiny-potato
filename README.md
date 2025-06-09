@@ -4,19 +4,19 @@ Solutions to (hopefully one day) every single AoC problem. Each year in a differ
 
 ## Languages
 
-| Year | Language   |
-|------|------------|
-| 2025 | C++        |
-| 2024 | Java       |
-| 2023 | Rust       |
-| 2022 | Python     |
-| 2021 | C          |
-| 2020 | Haskell    |
-| 2019 | Go         |
-| 2018 | TypeScript |
-| 2017 | OCaml      |
-| 2016 | Ruby       |
-| 2015 | Prolog     |
+| Year | Language   | Status      | Stars   |
+|------|------------|-------------|---------|
+| 2025 | C++        | Waiting...  | 0/50    |
+| 2024 | Java       | Complete    | 50/50   |
+| 2023 | Rust       | Complete    | 50/50   |
+| 2022 | Python     | Complete    | 50/50   |
+| 2021 | C          | Paused      | 15/50   |
+| 2020 | Haskell    | Not Started | 0/50    |
+| 2019 | Go         | Not Started | 0/50    |
+| 2018 | TypeScript | Not Started | 0/50    |
+| 2017 | OCaml      | Not Started | 0/50    |
+| 2016 | Ruby       | Not Started | 0/50    |
+| 2015 | Prolog     | Not Started | 0/50    |
 
 ## Usage
 
