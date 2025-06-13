@@ -14,3 +14,8 @@ Cargo.lock
 
 # NOTE: Java shit
 *.class
+
+# NOTE: C shit
+bin/
+*.o
+*.out
