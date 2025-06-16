@@ -4,12 +4,20 @@
 #include "aoc.h"
 
 void solve_08(char **lines, int line_count) {
-    (void)lines;      // Kachow !
-    (void)line_count; // This shit is just to suppress warning for now
-    
     int part1 = 0, part2 = 0;
-    
-    // TODO: Implement solution
-    
+
+    for (int i = 0; i < line_count; i++) {
+        char *outputs = strchr(lines[i], '|') + 2;
+
+        char *token = strtok(outputs, " ");
+        while (token) {
+            int len = strlen(token);
+            if (len == 2 || len == 3 || len == 4 || len == 7) {
+                part1++;
+            }
+            token = strtok(NULL, " ");
+        }
+    }
+
     printf("Part 1: %d\nPart 2: %d\n", part1, part2);
 }
