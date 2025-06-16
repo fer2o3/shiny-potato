@@ -38,7 +38,7 @@ char **read_lines(const char *filename, int *line_count) {
         return NULL;
     }
     
-    char buffer[1024];
+    char buffer[10000];
     int i = 0;
     while (fgets(buffer, sizeof(buffer), file) && i < *line_count) {
         int len = strlen(buffer);
