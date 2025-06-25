@@ -23,25 +23,25 @@ int flash(int grid[][10], int r, int c) {
 }
 
 int step(int grid[][10]) {
-    // First
     int flashes = 0;
     for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
             grid[i][j]++;
 
-    // Then
     for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
             if (grid[i][j] > 9)
                 flashes += flash(grid, i, j);
 
-    // Finally
+    int counter = 0;
     for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
-            if (grid[i][j] < 0)
+            if (grid[i][j] < 0) {
                 grid[i][j] = 0;
+                counter++;
+            }
 
-    return flashes;
+    return counter == 100 ? -1 : flashes;
 }
 
 void solve_11(char **lines, int line_count) {
@@ -54,9 +54,14 @@ void solve_11(char **lines, int line_count) {
             grid[i][j] = lines[i][j] - '0';
 
     int part1 = 0, part2 = 0;
-    int iter = 100;
-    while (iter--)
-        part1 += step(grid);
+
+    int iter = 0, count = 0;
+    while (!part2) {
+        iter++;
+        count = step(grid);
+        if (iter <= 100) part1 += count;
+        if (count == -1) part2 = iter;
+    }
 
     printf("Part 1: %d\nPart 2: %d\n", part1, part2);
 }
