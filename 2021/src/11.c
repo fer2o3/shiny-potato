@@ -1,15 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "aoc.h"
 
+#define FLASHED -9999
+
 int flash(int grid[][10], int r, int c) {
-    int flashes = 1;
-    grid[r][c] = -9999;
-    int dirs[8][2] = {
+    static const int dirs[8][2] = {
         {-1,0}, {1,0}, {0,-1}, {0,1}, 
         {1,1}, {-1,-1}, {1,-1}, {-1,1}
     };
+
+    int flashes = 1;
+    grid[r][c] = FLASHED;
 
     for (int i = 0; i < 8; i++) {
         int nr = r + dirs[i][0], nc = c + dirs[i][1];
@@ -24,6 +25,7 @@ int flash(int grid[][10], int r, int c) {
 
 int step(int grid[][10]) {
     int flashes = 0;
+
     for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
             grid[i][j]++;
