@@ -1,6 +1,6 @@
+#include "aoc.h"
 #include <stdio.h>
 #include <string.h>
-#include "aoc.h"
 
 void solve_02(char **lines, int line_count) {
     int horizontal = 0;
@@ -15,11 +15,9 @@ void solve_02(char **lines, int line_count) {
             if (strcmp(direction, "forward") == 0) {
                 horizontal += number;
                 new_depth += depth * number;
-            }
-            else if (strcmp(direction, "down") == 0) {
+            } else if (strcmp(direction, "down") == 0) {
                 depth += number;
-            }
-            else {
+            } else {
                 depth -= number;
             }
         }

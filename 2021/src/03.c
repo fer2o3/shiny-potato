@@ -1,6 +1,6 @@
+#include "aoc.h"
 #include <stdio.h>
 #include <string.h>
-#include "aoc.h"
 
 #define STR_LEN 12
 
@@ -13,13 +13,14 @@ int get_power_consumption(struct binary data[], int data_size) {
     int ones[STR_LEN] = {0};
     for (int i = 0; i < data_size; i++)
         for (int j = 0; j < STR_LEN; j++)
-            if (data[i].value[j] == '1') ones[j]++;
+            if (data[i].value[j] == '1')
+                ones[j]++;
 
     int gamma = 0, epsilon = 0;
     for (int i = 0; i < STR_LEN; i++) {
-        if (ones[i] > data_size / 2) 
+        if (ones[i] > data_size / 2)
             gamma |= 1 << (STR_LEN - 1 - i);
-        else 
+        else
             epsilon |= 1 << (STR_LEN - 1 - i);
     }
 
@@ -32,7 +33,8 @@ int get_rating(struct binary data[], int data_size, int oxygen) {
     while (valids > 1) {
         int ones = 0;
         for (int i = 0; i < data_size; i++)
-            if (data[i].valid && data[i].value[index] == '1') ones++;
+            if (data[i].valid && data[i].value[index] == '1')
+                ones++;
 
         char keep = ((ones >= valids - ones) == oxygen) + '0';
 
@@ -49,7 +51,8 @@ int get_rating(struct binary data[], int data_size, int oxygen) {
         if (data[i].valid) {
             int res = 0;
             for (int j = 0; j < STR_LEN; j++)
-                if (data[i].value[j] == '1') res |= 1 << (STR_LEN - 1 - j);
+                if (data[i].value[j] == '1')
+                    res |= 1 << (STR_LEN - 1 - j);
             return res;
         }
     }
@@ -68,7 +71,8 @@ void solve_03(char **lines, int line_count) {
     int part1 = get_power_consumption(data, line_count);
     int oxygen = get_rating(data, line_count, 1);
 
-    for (int i = 0; i < line_count; i++) data[i].valid = 1;
+    for (int i = 0; i < line_count; i++)
+        data[i].valid = 1;
     int co2 = get_rating(data, line_count, 0);
 
     printf("Part 1: %d\nPart 2: %d\n", part1, oxygen * co2);

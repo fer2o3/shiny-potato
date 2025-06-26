@@ -1,16 +1,18 @@
+#include "aoc.h"
 #include <stdio.h>
 #include <string.h>
-#include "aoc.h"
 
 int to_mask(char *str) {
     int mask = 0;
-    while (*str) mask |= 1 << (*str++ - 'a');
+    while (*str)
+        mask |= 1 << (*str++ - 'a');
     return mask;
 }
 
 int popcount(int x) {
     int count = 0;
-    while (x) count += x & 1, x >>= 1;
+    while (x)
+        count += x & 1, x >>= 1;
     return count;
 }
 
@@ -36,32 +38,43 @@ void solve_08(char **lines, int line_count) {
         while (token && output_count < 4) {
             outputs[output_count++] = to_mask(token);
             int len = strlen(token);
-            if (len == 2 || len == 3 || len == 4 || len == 7) part1++;
+            if (len == 2 || len == 3 || len == 4 || len == 7)
+                part1++;
             token = strtok(NULL, " ");
         }
 
         int digits[10] = {0};
         for (int j = 0; j < 10; j++) {
             int segments = popcount(patterns[j]);
-            if (segments == 2) digits[1] = patterns[j];
-            else if (segments == 3) digits[7] = patterns[j];
-            else if (segments == 4) digits[4] = patterns[j];
-            else if (segments == 7) digits[8] = patterns[j];
+            if (segments == 2)
+                digits[1] = patterns[j];
+            else if (segments == 3)
+                digits[7] = patterns[j];
+            else if (segments == 4)
+                digits[4] = patterns[j];
+            else if (segments == 7)
+                digits[8] = patterns[j];
         }
 
         for (int j = 0; j < 10; j++) {
             if (popcount(patterns[j]) == 6) {
-                if ((patterns[j] & digits[1]) != digits[1]) digits[6] = patterns[j];
-                else if ((patterns[j] & digits[4]) == digits[4]) digits[9] = patterns[j];
-                else digits[0] = patterns[j];
+                if ((patterns[j] & digits[1]) != digits[1])
+                    digits[6] = patterns[j];
+                else if ((patterns[j] & digits[4]) == digits[4])
+                    digits[9] = patterns[j];
+                else
+                    digits[0] = patterns[j];
             }
         }
 
         for (int j = 0; j < 10; j++) {
             if (popcount(patterns[j]) == 5) {
-                if ((patterns[j] & digits[1]) == digits[1]) digits[3] = patterns[j];
-                else if ((digits[6] & patterns[j]) == patterns[j]) digits[5] = patterns[j];
-                else digits[2] = patterns[j];
+                if ((patterns[j] & digits[1]) == digits[1])
+                    digits[3] = patterns[j];
+                else if ((digits[6] & patterns[j]) == patterns[j])
+                    digits[5] = patterns[j];
+                else
+                    digits[2] = patterns[j];
             }
         }
 

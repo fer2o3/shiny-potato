@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "aoc.h"
+#include <stdio.h>
 
 #define GRID_SIZE 1000
 
@@ -24,7 +24,8 @@ int count_intersections(int grid[GRID_SIZE][GRID_SIZE]) {
     int count = 0;
     for (int i = 0; i < GRID_SIZE; i++)
         for (int j = 0; j < GRID_SIZE; j++)
-            if (grid[i][j] > 1) count++;
+            if (grid[i][j] > 1)
+                count++;
     return count;
 }
 
@@ -42,7 +43,6 @@ void solve_05(char **lines, int line_count) {
         plot_line(&l, grid2);
     }
 
-    printf("Part 1: %d\nPart 2: %d\n", 
-           count_intersections(grid1), 
+    printf("Part 1: %d\nPart 2: %d\n", count_intersections(grid1),
            count_intersections(grid2));
 }

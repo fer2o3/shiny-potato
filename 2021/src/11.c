@@ -1,13 +1,11 @@
-#include <stdio.h>
 #include "aoc.h"
+#include <stdio.h>
 
 #define FLASHED -9999
 
 int flash(int grid[][10], int r, int c) {
-    static const int dirs[8][2] = {
-        {-1,0}, {1,0}, {0,-1}, {0,1}, 
-        {1,1}, {-1,-1}, {1,-1}, {-1,1}
-    };
+    static const int dirs[8][2] = {{-1, 0}, {1, 0},   {0, -1}, {0, 1},
+                                   {1, 1},  {-1, -1}, {1, -1}, {-1, 1}};
 
     int flashes = 1;
     grid[r][c] = FLASHED;
@@ -16,7 +14,8 @@ int flash(int grid[][10], int r, int c) {
         int nr = r + dirs[i][0], nc = c + dirs[i][1];
         if (nr >= 0 && nr < 10 && nc >= 0 && nc < 10) {
             grid[nr][nc]++;
-            if (grid[nr][nc] > 9) flashes += flash(grid, nr, nc);
+            if (grid[nr][nc] > 9)
+                flashes += flash(grid, nr, nc);
         }
     }
 
@@ -61,8 +60,10 @@ void solve_11(char **lines, int line_count) {
     while (!part2) {
         iter++;
         count = step(grid);
-        if (iter <= 100) part1 += count;
-        if (count == -1) part2 = iter;
+        if (iter <= 100)
+            part1 += count;
+        if (count == -1)
+            part2 = iter;
     }
 
     printf("Part 1: %d\nPart 2: %d\n", part1, part2);

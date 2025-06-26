@@ -1,6 +1,7 @@
 # shiny-potato
 
-Solutions to (hopefully one day) every single AoC problem. Each year in a different language.
+Solutions to (hopefully one day) every single AoC problem.
+Each year in a different language.
 
 ## Languages
 
@@ -10,7 +11,7 @@ Solutions to (hopefully one day) every single AoC problem. Each year in a differ
 | 2024 | Java       | Complete    | 50/50   |
 | 2023 | Rust       | Complete    | 50/50   |
 | 2022 | Python     | Complete    | 50/50   |
-| 2021 | C          | WIP         | 22/50   |
+| 2021 | C          | WIP         | 26/50   |
 | 2020 | Haskell    | Not Started | 00/50   |
 | 2019 | Go         | Not Started | 00/50   |
 | 2018 | TypeScript | Not Started | 00/50   |

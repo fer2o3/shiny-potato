@@ -1,7 +1,7 @@
+#include "aoc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "aoc.h"
 
 void solve_01(char **lines, int line_count) {
     int *input = malloc(line_count * sizeof(int));

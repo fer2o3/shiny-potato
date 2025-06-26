@@ -1,6 +1,6 @@
+#include "aoc.h"
 #include <stdio.h>
 #include <string.h>
-#include "aoc.h"
 
 int graph[50][20];
 int conn_count[50] = {0};
@@ -9,35 +9,41 @@ int name_count = 0;
 
 int get_id(char *name) {
     for (int i = 0; i < name_count; i++) {
-        if (strcmp(names[i], name) == 0) return i;
+        if (strcmp(names[i], name) == 0)
+            return i;
     }
     strcpy(names[name_count], name);
     return name_count++;
 }
 
 int dfs(int current, char visited[], int can_double) {
-    if (current == 1) return 1;
+    if (current == 1)
+        return 1;
 
     int paths = 0;
     int is_small = names[current][0] >= 'a';
 
-    if (is_small) visited[current]++;
+    if (is_small)
+        visited[current]++;
 
     for (int i = 0; i < conn_count[current]; i++) {
         int next = graph[current][i];
-        if (next == 0) continue;
+        if (next == 0)
+            continue;
 
         int next_small = names[next][0] >= 'a';
 
         if (next_small && visited[next]) {
-            if (!can_double || next == 0 || next == 1) continue;
+            if (!can_double || next == 0 || next == 1)
+                continue;
             paths += dfs(next, visited, 0);
         } else {
             paths += dfs(next, visited, can_double);
         }
     }
 
-    if (is_small) visited[current]--;
+    if (is_small)
+        visited[current]--;
     return paths;
 }
 

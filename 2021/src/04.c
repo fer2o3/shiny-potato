@@ -1,7 +1,7 @@
+#include "aoc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "aoc.h"
 
 #define MAX_BOARDS 128
 #define BOARD_SIZE 25
@@ -15,10 +15,13 @@ int checkBingo(struct GridNum board[BOARD_SIZE]) {
     for (int i = 0; i < 5; i++) {
         int row = 1, col = 1;
         for (int j = 0; j < 5; j++) {
-            if (!board[i + j * 5].flag) row = 0;
-            if (!board[j + i * 5].flag) col = 0;
+            if (!board[i + j * 5].flag)
+                row = 0;
+            if (!board[j + i * 5].flag)
+                col = 0;
         }
-        if (row || col) return 1;
+        if (row || col)
+            return 1;
     }
     return 0;
 }
@@ -26,7 +29,8 @@ int checkBingo(struct GridNum board[BOARD_SIZE]) {
 int sumNotFlagged(struct GridNum board[BOARD_SIZE]) {
     int sum = 0;
     for (int i = 0; i < BOARD_SIZE; i++)
-        if (!board[i].flag) sum += board[i].value;
+        if (!board[i].flag)
+            sum += board[i].value;
     return sum;
 }
 
@@ -43,7 +47,8 @@ void solve_04(char **lines, int line_count) {
 
     int boardIndex = 0, cellIndex = 0;
     for (int i = 2; i < line_count; i++) {
-        if (strlen(lines[i]) == 0) continue;
+        if (strlen(lines[i]) == 0)
+            continue;
 
         char *num = strtok(lines[i], " ");
         while (num) {
@@ -66,7 +71,8 @@ void solve_04(char **lines, int line_count) {
 
     for (int num_i = 0; num_i < numNumbers && (!part1 || !part2); num_i++) {
         for (int board_i = 0; board_i < numBoards; board_i++) {
-            if (won[board_i]) continue;
+            if (won[board_i])
+                continue;
 
             for (int val_i = 0; val_i < BOARD_SIZE; val_i++) {
                 if (boards[board_i][val_i].value == numbers[num_i]) {
@@ -80,8 +86,10 @@ void solve_04(char **lines, int line_count) {
                 winners++;
                 int score = sumNotFlagged(boards[board_i]) * numbers[num_i];
 
-                if (!part1) part1 = score;
-                if (winners == numBoards) part2 = score;
+                if (!part1)
+                    part1 = score;
+                if (winners == numBoards)
+                    part2 = score;
             }
         }
     }
