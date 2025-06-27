@@ -48,28 +48,28 @@ int dijkstra(int size) {
 }
 
 void solve_15(char **lines, int line_count) {
+    int full_size = line_count * 5;
+
     for (int r = 0; r < 5; r++) {
         for (int c = 0; c < 5; c++) {
             for (int i = 0; i < line_count; i++) {
                 for (int j = 0; j < line_count; j++) {
-                    int risk = lines[i][j] - '0' + r + c;
-                    while (risk > 9)
-                        risk -= 9;
+                    int risk = (lines[i][j] - '0' + r + c - 1) % 9 + 1;
                     grid[r * line_count + i][c * line_count + j] = risk;
                 }
             }
         }
     }
 
-    for (int i = 0; i < 250000; i++) {
+    memset(visited, 0, full_size * full_size);
+    for (int i = 0; i < full_size * full_size; i++) {
         dist[i] = INT_MAX;
-        visited[i] = 0;
     }
     dist[0] = 0;
 
-    dijkstra(line_count * 5);
-    int part1 = dist[(line_count - 1) * 500 + (line_count - 1)];
-    int part2 = dist[(line_count * 5) * (line_count * 5) - 1];
+    dijkstra(full_size);
+    int part1 = dist[(line_count - 1) * full_size + (line_count - 1)];
+    int part2 = dist[full_size * full_size - 1];
 
     printf("Part 1: %d\nPart 2: %d\n", part1, part2);
 }
