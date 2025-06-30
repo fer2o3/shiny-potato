@@ -1,7 +1,6 @@
 #include "aoc.h"
 #include <limits.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 char grid[500][500];

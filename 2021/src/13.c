@@ -1,8 +1,6 @@
 #include "aoc.h"
 #include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 int count_dots(char paper[1500][1500], int w, int h) {
     int res = 0;
