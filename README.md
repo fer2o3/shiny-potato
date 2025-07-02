@@ -7,7 +7,7 @@ Each year in a different language.
 
 | Year | Language   | Status      | Stars   |
 |------|------------|-------------|---------|
-| 2025 | C++        | Waiting...  | 00/50   |
+| 2025 | Perl       | Waiting...  | 00/50   |
 | 2024 | Java       | Complete    | 50/50   |
 | 2023 | Rust       | Complete    | 50/50   |
 | 2022 | Python     | Complete    | 50/50   |
