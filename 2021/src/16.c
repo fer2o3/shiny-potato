@@ -1,8 +1,6 @@
 #include "aoc.h"
 #include <limits.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 int hex_to_val(char c) { return c <= '9' ? c - '0' : c - 'A' + 10; }
 
@@ -33,7 +31,7 @@ unsigned long long parse_packet(const char *hex, int *pos, int *version_sum) {
         return val;
     }
 
-    unsigned long long vals[1000];
+    unsigned long long vals[1000] = {0};
     int count = 0;
 
     if (get_bits(hex, (*pos)++, 1) == 0) {
