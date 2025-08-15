@@ -196,6 +196,17 @@ void solve_19(char **lines, int line_count) {
     }
 
     int part2 = 0;
+    for (int i = 0; i < scanner_count; i++) {
+        for (int j = i + 1; j < scanner_count; j++) {
+            int manhattan =
+                abs(scanners[i].position.x - scanners[j].position.x) +
+                abs(scanners[i].position.y - scanners[j].position.y) +
+                abs(scanners[i].position.z - scanners[j].position.z);
+            if (manhattan > part2) {
+                part2 = manhattan;
+            }
+        }
+    }
 
     printf("Part 1: %d\nPart 2: %d\n", part1, part2);
 }
